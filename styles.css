@@ -8,7 +8,6 @@
 }
 
 :root {
-    /* Default Dark Mode */
     --bg: #0c0e12;
     --surface: #141820;
     --border: #232833;
@@ -22,65 +21,6 @@
     --font: "Space Grotesk", system-ui, sans-serif;
     --mono: "IBM Plex Mono", ui-monospace, monospace;
     --max: 720px;
-}
-
-/* Expand max width on larger screens to prevent cramped feeling */
-@media (min-width: 1024px) {
-    :root {
-        --max: 960px;
-    }
-}
-
-/* Light Mode System Preference */
-@media (prefers-color-scheme: light) {
-    :root {
-        --bg: #fafbfc;
-        --surface: #ffffff;
-        --border: #d1d5db;
-        --text: #111827;
-        --muted: #6b7280;
-        --accent: #059669;
-        --accent-dim: rgba(5, 150, 105, 0.08);
-    }
-
-    .grid-overlay {
-        background-image:
-            linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-    }
-
-    .site-header {
-        background: rgba(250, 251, 252, 0.85);
-    }
-
-    /* Keep terminal dark for aesthetic contrast even in light mode */
-    .terminal {
-        background: #1a1e27;
-        border-color: #d1d5db;
-    }
-    .terminal-bar {
-        background: #232833;
-    }
-    .terminal-body {
-        color: #e6e8ec;
-    }
-    .prompt {
-        color: #8b929e;
-    }
-}
-
-/* Smooth transitions for theme switching */
-body,
-.site-header,
-.terminal,
-.terminal-bar,
-.project-card,
-.link-card,
-.info-item {
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease;
 }
 
 html {
@@ -190,6 +130,13 @@ a:hover {
     margin: 0 auto;
 }
 
+.eyebrow {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+}
+
 .terminal {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -220,7 +167,6 @@ a:hover {
 .dot-g {
     background: var(--green);
 }
-
 .terminal-title {
     margin-left: 0.5rem;
     font-family: var(--mono);
@@ -256,15 +202,15 @@ a:hover {
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-size: clamp(1.8rem, 4.5vw, 2.4rem);
     font-weight: 700;
     letter-spacing: -0.03em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 .subtitle {
     color: var(--muted);
-    font-size: 1.1rem;
-    max-width: 600px;
+    font-size: 1.05rem;
+    max-width: 520px;
     margin-bottom: 1.75rem;
 }
 .subtitle strong {
@@ -281,15 +227,14 @@ a:hover {
 .btn {
     display: inline-flex;
     align-items: center;
-    padding: 0.65rem 1.25rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 8px;
     font-weight: 600;
     font-size: 0.9rem;
     text-decoration: none;
     transition:
         background 0.15s,
-        border-color 0.15s,
-        transform 0.15s;
+        border-color 0.15s;
 }
 .btn-primary {
     background: var(--accent);
@@ -299,7 +244,6 @@ a:hover {
     background: #8ef0c8;
     text-decoration: none;
     color: #0a0c10;
-    transform: translateY(-1px);
 }
 .btn-ghost {
     background: transparent;
@@ -310,12 +254,11 @@ a:hover {
     border-color: var(--accent);
     color: var(--accent);
     text-decoration: none;
-    transform: translateY(-1px);
 }
 
 /* ===== Sections ===== */
 .section {
-    padding: 3.5rem 1.5rem;
+    padding: 3rem 1.5rem;
     max-width: var(--max);
     margin: 0 auto;
     position: relative;
@@ -330,7 +273,7 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 .section h2 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 1.25rem;
@@ -339,7 +282,6 @@ a:hover {
     color: var(--muted);
     font-size: 1.05rem;
     margin-bottom: 1.5rem;
-    max-width: 65ch;
 }
 .lede strong {
     color: var(--text);
@@ -347,14 +289,14 @@ a:hover {
 
 .info-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1rem;
 }
 .info-item {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 1rem;
+    padding: 0.9rem 1rem;
 }
 .info-label {
     display: block;
@@ -363,12 +305,12 @@ a:hover {
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.25rem;
 }
 
 /* Entries (experience) */
 .entry {
-    padding: 1.25rem 0;
+    padding: 1.15rem 0;
     border-bottom: 1px solid var(--border);
 }
 .entry:last-child {
@@ -379,10 +321,10 @@ a:hover {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.35rem 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
 }
 .entry h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
 }
 .entry-meta {
@@ -398,104 +340,78 @@ a:hover {
 /* Projects */
 .project-grid {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.85rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
-@media (min-width: 1024px) {
-    .project-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 .project-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 1.25rem;
+    padding: 1.15rem;
     color: inherit;
     text-decoration: none;
     transition:
         border-color 0.15s,
-        transform 0.15s,
-        background-color 0.15s;
+        transform 0.15s;
 }
 .project-card:hover {
     border-color: var(--accent);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     text-decoration: none;
     color: inherit;
-    background-color: var(--accent-dim);
 }
 .project-lang {
     font-family: var(--mono);
     font-size: 0.7rem;
     color: var(--accent);
     background: var(--accent-dim);
-    padding: 0.2rem 0.5rem;
+    padding: 0.15rem 0.45rem;
     border-radius: 999px;
     display: inline-block;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
 }
 .project-card h3 {
-    font-size: 1.05rem;
-    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
 }
 .project-card p {
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 .project-card-more {
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-style: dashed;
-    text-align: center;
 }
 
-/* Links Grid */
-.link-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0.85rem;
+/* Links */
+.link-list {
     list-style: none;
 }
-.link-card {
+.link-list li {
+    border-bottom: 1px solid var(--border);
+}
+.link-list a {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.75rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1rem;
+    padding: 0.9rem 0;
     color: var(--text);
     text-decoration: none;
     font-weight: 500;
-    transition:
-        border-color 0.15s,
-        transform 0.15s,
-        background-color 0.15s;
 }
-.link-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    background-color: var(--accent-dim);
-    text-decoration: none;
-    color: var(--text);
+.link-list a:hover {
+    color: var(--accent);
 }
-.link-card .arrow {
-    margin-left: auto;
+.arrow {
     color: var(--muted);
     font-size: 0.9rem;
-    transition: transform 0.15s;
-}
-.link-card:hover .arrow {
-    transform: translateX(4px);
-    color: var(--accent);
 }
 
 /* Footer */
 .site-footer {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1.5rem;
     text-align: center;
     border-top: 1px solid var(--border);
     position: relative;
@@ -507,7 +423,50 @@ a:hover {
     color: var(--muted);
 }
 
-/* Mobile Navigation */
+/* ===== Light Mode Support ===== */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #ffffff;
+        --surface: #f6f8fa;
+        --border: #d0d7de;
+        --text: #1f2328;
+        --muted: #656d76;
+        --accent: #1a7f37; /* Darker green for sufficient contrast on light backgrounds */
+        --accent-dim: rgba(26, 127, 55, 0.12);
+        --red: #cf222e;
+        --yellow: #9a6700;
+        --green: #1a7f37;
+    }
+
+    .site-header {
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+    .terminal {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    }
+
+    .terminal-bar {
+        background: #f3f4f6;
+    }
+
+    .grid-overlay {
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    }
+
+    .btn-primary {
+        color: #ffffff;
+    }
+
+    .btn-primary:hover {
+        background: #14632c;
+        color: #ffffff;
+    }
+}
+
+/* Mobile */
 @media (max-width: 640px) {
     .nav-toggle {
         display: flex;
