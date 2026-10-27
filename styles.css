@@ -366,6 +366,12 @@ a:hover {
 .lede strong {
     color: var(--text);
 }
+.lede code {
+    overflow-wrap: anywhere;
+    font-family: var(--mono);
+    font-size: 0.9em;
+    color: var(--text);
+}
 
 .info-row {
     display: grid;
