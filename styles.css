@@ -133,6 +133,8 @@ img, svg { max-width: 100%; }
 
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--ink); text-decoration: none; }
+.language-link { color: var(--muted); font-weight: 600; font-size: .9rem; text-decoration: none; }
+.language-link:hover { color: var(--ink); }
 
 /* Botões dentro de áreas verdes (hero e CTA) */
 .btn-light { background: #ffffff; color: #1b3a2c; }
@@ -347,6 +349,15 @@ img, svg { max-width: 100%; }
 .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .facts dt { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
 .facts dd { margin: 0.15rem 0 0; font-weight: 500; }
+.resume-callout { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 2rem; padding: 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; }
+.resume-callout h3 { margin-top: .75rem; font-size: 1.35rem; }
+.resume-callout p { margin-top: .35rem; color: var(--muted); }
+.resume-page { min-height: calc(100vh - 9rem); padding-block: clamp(3rem, 7vw, 5rem); }
+.resume-header { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+.resume-header h1 { font-size: clamp(2rem, 5vw, 3.4rem); }
+.resume-header p { margin-top: .6rem; color: var(--muted); }
+.pdf-frame { width: 100%; height: min(78vh, 70rem); border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.resume-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
 
 /* Linha do tempo (Background): é uma sequência real, então usa <ol> */
 .timeline { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 0.4rem; }
@@ -483,6 +494,7 @@ img, svg { max-width: 100%; }
 
   .entry { grid-template-columns: 1fr; gap: 0.25rem; }
   .nostr { flex-direction: column; align-items: stretch; }
+  .resume-callout, .resume-header { align-items: stretch; flex-direction: column; }
 }
 
 @media (max-width: 30rem) {
